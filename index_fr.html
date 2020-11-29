@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-675766-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-675766-5');
+  </script>*/
+//-->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div id="main">
+    <div id="card" class="tilt-left" onclick="startNewRound()">
+      <div id="letter"></div>
+      <div id="categories"></div>
+    </div>
+    <div id="timer" onclick="toggleTimer()" ondblclick="resetTimer()"></div>
+    <audio id="audio">
+      <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+    <div id="footer">
+      <select id="localization" onchange="setLocalization()">
+        <option value="" disabled="disabled">Localisation:</option>
+        <option value="none">None</option>
+      </select>
+	  <select id="set_time" onchange="setNewTimer()">
+        <option value="" disabled="disabled">Temps par manche</option>
+        <option value=30>30 seconds</option>	
+		<option value=60>1 minute</option>	
+		<option value=90>1 minute 30 seconds</option>
+		<option value=120>2 minutes</option>			
+		<option value=180 selected="selected">3 minutes</option>
+		<option value=240>4 minutes</option>	
+		<option value=300>5 minutes</option>	
+		<option value=600>10 minutes</option>	
+      </select>
+	  <select id="set_numcat" onchange="setNumCat()">
+        <option value="" disabled="disabled"># catégories</option>
+        <option value=4>4</option>	
+		<option value=6>6</option>	
+		<option value=8>8</option>
+		<option value=10>10</option>			
+		<option value=12 selected="selected">12</option>
+		<option value=14>14</option>	
+		<option value=16>16</option>	
+      </select>
+      <a onclick="show('rules')">Règles du jeu</a>
+      <a onclick="show('help')">Aide</a>
+    </div>
+    <div id="credits"><a href="http://www.keiranking.com/" target="_blank">keiranking.com</a> &middot;
+    <a href="https://github.com/keiranking/Gary" target="_blank">GitHub</a> &middot; Gary</div>
+    <div id="notebar"></div>
+  </div>
+  <div id="rules" class="hidden">
+    <h3>Règles du jeu</h3>
+    <p>À chaque tour, les joueurs rédigent des réponses qui correspondent aux catégories, en commençant par la lettre clé, dans le temps imparti. </p>
+    <p>Chaque réponse unique vaut 1 point. Les réponses allitératives valent 1 point par mot (ex. Daffy Duck, 2 pts).
+    <p>Les réponses ne peuvent être utilisées que dans une seule catégorie par tour. Le joueur qui a le plus de points après la fin de tous les tours gagne.</p>
+  </div>
+  <div id="help" class="hidden">
+    <h3>Aide</h3>
+    <p>Cliquez sur la carte pour commencer un nouveau tour.</p>
+    <p>Cliquez sur le chronomètre pour le démarrer ou le mettre en pause.</p>
+  </div>
+  <script src="categories_fr.js"></script>
+  <script src="gary_fr.js"></script>
+</body>
+</html>
